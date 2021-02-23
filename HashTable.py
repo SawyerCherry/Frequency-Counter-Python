@@ -64,19 +64,8 @@ class HashTable:
     #False save that one in the linked list since it will not be changed
 
 
-    # we need to return the data, and ship it to the print_key_values method. 
+    # We need to return the data, and ship it to the print_key_values method. 
     
-
-
-
-    
-
-
-
-    
-
-
-
 
   # 4️⃣ TODO: Complete the print_key_values method.
 

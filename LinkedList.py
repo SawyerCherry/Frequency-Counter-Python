@@ -56,7 +56,7 @@ class LinkedList:
         print(f'Node {i}: {current.data}')
         current = current.next
 
-
+#refactoring
   def remove_song(self, key):
     current_song = self.__first_song
     previous_song = None
