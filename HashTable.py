@@ -36,16 +36,40 @@ class HashTable:
     return hash_number
 
 
-
-
-
-
   # 3️⃣ TODO: Complete the insert method.
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
+
   def insert(self, key, value):
-    pass
+    # step1: we need to get the hash num from key
+    index = self.hash_func(key)
+    # step2: access index of self.array
+    
+    # step3: call the append func from linked list, assign (value) that was passed into this func
+    #if key exists in linked list
+    number_of_key = self.arr[index].find(key)
+    if number_of_key == -1:
+      self.arr[index].append((key, value))
+    else:
+
+
+
+
+    #True increment counter 
+    # copy out the current counter
+    # delete the node 
+    # increment the counter
+    # append the new values into the linked list
+    #False save that one in the linked list since it will not be changed
+
+
+    # we need to return the data, and ship it to the print_key_values method. 
+    
+
+
+
+    
 
 
 

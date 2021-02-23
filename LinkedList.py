@@ -55,3 +55,22 @@ class LinkedList:
       for i in range(self.length()):
         print(f'Node {i}: {current.data}')
         current = current.next
+
+
+  def remove_song(self, key):
+    current_song = self.__first_song
+    previous_song = None
+    exists = False
+    while not exists:
+      if current_song == None:
+        print(f"Could not find {title} in the Playlist.")
+        exists = False
+        return
+      elif current_song.get_title() == title:
+        exists = True
+      else: 
+        previous_song = current_song
+        current_song = current_song.get_next_song()
+    if previous_song == None:
+      self.__first_song = current_song.get_next_song()
+    else:
