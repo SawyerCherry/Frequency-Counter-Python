@@ -21,7 +21,7 @@ class LinkedList:
 
     while current != None and not found:
 
-      if current.data == item:
+      if current.data[0] == item:
         found = True
       else:
         current = current.next
@@ -31,7 +31,6 @@ class LinkedList:
       return counter
     else:
       return -1
-
 
 
   def length(self):
@@ -48,29 +47,26 @@ class LinkedList:
 
   def print_nodes(self):
     current = self.head
-    
+  
     if current == None:
-      print('The linked list is empty.')
+      pass
     else:
       for i in range(self.length()):
-        print(f'Node {i}: {current.data}')
+        print(f'{current.data[0]}: {current.data[1]}')
         current = current.next
 
-#refactoring
-  def remove_song(self, key):
-    current_song = self.__first_song
-    previous_song = None
-    exists = False
-    while not exists:
-      if current_song == None:
-        print(f"Could not find {title} in the Playlist.")
-        exists = False
-        return
-      elif current_song.get_title() == title:
-        exists = True
-      else: 
-        previous_song = current_song
-        current_song = current_song.get_next_song()
-    if previous_song == None:
-      self.__first_song = current_song.get_next_song()
-    else:
+
+  def update(self, key):
+    current = self.head
+    found = False
+
+    while current != None and not found:
+      # this just reassigns the current node to a new tuple and increases the value of it by 1.
+      if current.data[0] == key:
+        found = True
+        value = current.data[1]
+        updated_tuple = (key, value + 1)
+        current.data = updated_tuple
+      else:
+        current = current.next
+

@@ -32,7 +32,9 @@ class HashTable:
   # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
 
   def hash_func(self, key):
-    hash_number = hash(key) % self.size
+    # this hash function takes the distance from the first letter of the key and 's'
+    distance = ord(key[0]) - ord('s')
+    hash_number = distance % self.size
     return hash_number
 
 
@@ -45,27 +47,25 @@ class HashTable:
     # step1: we need to get the hash num from key
     index = self.hash_func(key)
     # step2: access index of self.array
-    
+    ll_insert = self.arr[index]
     # step3: call the append func from linked list, assign (value) that was passed into this func
     #if key exists in linked list
-    number_of_key = self.arr[index].find(key)
-    if number_of_key == -1:
-      self.arr[index].append((key, value))
-    else:
+    # number_of_key = self.arr[index].find(key)
+    # if number_of_key == -1:
+    if ll_insert.find(key) == -1:
+      ll_insert.append((key, value))
+    else: 
+      ll_insert.update(key)
 
-
-
-
+    #if the word/key does not exist, 
+    # else:
     #True increment counter 
     # copy out the current counter
     # delete the node 
     # increment the counter
     # append the new values into the linked list
     #False save that one in the linked list since it will not be changed
-
-
     # We need to return the data, and ship it to the print_key_values method. 
-    
 
   # 4️⃣ TODO: Complete the print_key_values method.
 
@@ -79,7 +79,5 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
-
-
-
+    for ll in self.arr:         
+      ll.print_nodes()
